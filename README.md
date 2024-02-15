@@ -3,6 +3,20 @@
 Simple script demo, on how to remove background from a video.
 It take a video, extract it frames into images, apply background removal and then stitch it back together into a new video.
 
+# (about branch) dev/http-server
+
+Added simple REST API server, we can upload video, and it will automatically process the video
+Currently we not blocking the request, we immediately return a response while the video being processed in background via multi thereading.
+
+## TODO:
+
+Because we are not blocking the request,
+after the video process, we should do something to let know the sender, that the video finished processed.
+Maybe we can assign the video with an id, later the sender can query the id to check if the video done processed or not.
+Or maybe we can use websocekt or webhook (if sender from another server) to notified the sender that their video finished processing.
+
+(note: this repo is just a POC)
+
 # How to run (Windows)
 
 1. cd into this directory
