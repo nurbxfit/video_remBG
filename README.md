@@ -1,3 +1,8 @@
+# Aout
+
+Simple script demo, on how to remove background from a video.
+It take a video, extract it frames into images, apply background removal and then stitch it back together into a new video.
+
 # How to run (Windows)
 
 1. cd into this directory
