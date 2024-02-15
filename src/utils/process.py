@@ -24,8 +24,8 @@ def process_image(**kwargs):
     FINAL_OUTPUT_VIDEO = kwargs['FINAL_OUTPUT_VIDEO']
 
     start_time = time.time()
-    # extract(SOURCE_FILE, EXTRACTED_FRAMES_FOLDER, FRAME_RATE)
-    # remove_backgrounds(EXTRACTED_FRAMES_FOLDER, BACKGROUND_REMOVED_FOLDER)
+    extract(SOURCE_FILE, EXTRACTED_FRAMES_FOLDER, FRAME_RATE)
+    remove_backgrounds(EXTRACTED_FRAMES_FOLDER, BACKGROUND_REMOVED_FOLDER)
     print(f'Final output path:{FINAL_OUTPUT_VIDEO}')
     stitch_frames(BACKGROUND_REMOVED_FOLDER,FINAL_OUTPUT_VIDEO, FRAME_RATE)
     end_time = time.time()
