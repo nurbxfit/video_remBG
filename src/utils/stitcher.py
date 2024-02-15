@@ -1,7 +1,7 @@
 import os
 import ffmpeg
 
-def stitch_frames (input_path, output_path, frame_rate = 60, output_format = 'mp4'):
+def stitch_frames (input_path, output_path, frame_rate = 24, output_format = 'mp4'):
     
     if not os.path.isdir(input_path):
         raise ValueError("Input folder path does not exist.")
@@ -22,8 +22,8 @@ def stitch_frames (input_path, output_path, frame_rate = 60, output_format = 'mp
 
 
     output_options = {
-        # 'c:v': 'libx264',
-        # 'pix_fmt': 'yuv420p',
+        'c:v': 'libx264',
+        'pix_fmt': 'yuv420p',
         'y': '-y'
     }
 

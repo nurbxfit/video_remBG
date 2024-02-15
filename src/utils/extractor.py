@@ -7,21 +7,20 @@ def extract(video_path, output_path,target_fps = 24):
     try: 
         probe = ffmpeg.probe(video_path)
         video_stream = find_video(probe['streams'])
-        duration = float(video_stream['duration'])
+        # duration = float(video_stream['duration'])
+        input_fps = parse_frame_rate(video_stream['r_frame_rate'])
     except ffmpeg.Error as e:
         print("ffmpeg_error:",e.stderr)
         return
     
     input_options = {
-        # 'format' : 'rawvideo',
-        # 'pix_fmt': 'rgb24',
-        # 's' : '1920x1080'
-        'r': target_fps
+        'r': input_fps  # Set input frame rate
     }
 
     output_options = {
         'f': 'image2',
-        'y': '-y'
+        'y': '-y',
+        'r': target_fps  # Set target frame rate
     }
 
     # Run ffmpeg
@@ -36,3 +35,6 @@ def find_video(streams):
             return stream
     raise Exception("Failed to find video stream!")
 
+def parse_frame_rate(frame_rate_str):
+    numerator, denominator = map(int, frame_rate_str.split('/'))
+    return numerator / denominator
