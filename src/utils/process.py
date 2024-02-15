@@ -4,7 +4,7 @@ from utils.remover import remove_backgrounds
 from utils.stitcher import stitch_frames
 import time
 
-def process_image(**kwargs):
+def process_video(**kwargs):
     if not 'FRAME_RATE' in kwargs:
         raise f'Please provide target FRAME_RATE'
     if not 'SOURCE_FILE' in kwargs:

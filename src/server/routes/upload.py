@@ -4,7 +4,7 @@ from threading import Thread
 
 import os 
 from utils.cleaner import clear_folder
-from utils.process import process_image
+from utils.process import process_video
 
 UPLOAD_FOLDER= os.path.join('uploads')
 EXTRACTED_FRAMES_FOLDER = 'output/extracted'
@@ -31,7 +31,7 @@ class Upload(Resource):
         file.save(SOURCE_FILE)
         # run some processing function (not blocking the return response)
         # Start processing in a separate thread
-        bg_remove_thread = Thread(target=process_image, kwargs={
+        bg_remove_thread = Thread(target=process_video, kwargs={
             'SOURCE_FILE': SOURCE_FILE,
             'EXTRACTED_FRAMES_FOLDER': EXTRACTED_FRAMES_FOLDER,
             'BACKGROUND_REMOVED_FOLDER': BACKGROUND_REMOVED_FOLDER,

@@ -15,6 +15,14 @@ after the video process, we should do something to let know the sender, that the
 Maybe we can assign the video with an id, later the sender can query the id to check if the video done processed or not.
 Or maybe we can use websocekt or webhook (if sender from another server) to notified the sender that their video finished processing.
 
+In future if we were to make it as final usable product,
+we need to consider these cases:
+
+- we should seperate the extracted folder for every incoming request
+- we check the hash, if user send the same video, we can skip the extraction process
+- we shall clear the folders regularly to reduce disk usage.
+- we need to consider better model or better GPU to process removing the background.
+
 (note: this repo is just a POC)
 
 # How to run (Windows)
