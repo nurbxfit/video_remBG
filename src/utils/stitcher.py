@@ -9,6 +9,9 @@ def stitch_frames (input_path, output_path, frame_rate = 24, output_format = 'mp
     # Ensure the input directory exists
     os.makedirs(input_path, exist_ok=True)
 
+    # Ensure the final output directory exist
+    os.makedirs(output_path, exist_ok=True)
+
      # Define output video file name
     output_file_name = 'output_video.' + output_format
 
@@ -39,7 +42,10 @@ def stitch_frames (input_path, output_path, frame_rate = 24, output_format = 'mp
 
     
     input_pattern = os.path.join('input_list.txt')
-
-    # Run ffmpeg to create the video
-    ffmpeg.input(input_pattern,**input_options).output(
+   
+    try:
+        # Run ffmpeg to create the video
+        ffmpeg.input(input_pattern,**input_options).output(
         os.path.join(output_path,output_file_name), **output_options).run()
+    except ffmpeg.Error as e:
+        print(f'Stiching_Error:{e.stderr}')
