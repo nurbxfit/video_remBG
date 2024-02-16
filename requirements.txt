@@ -1,5 +1,6 @@
-rembg==2.0.28
+rembg==2.0.54
 Pillow==9.3.0
 ffmpeg-python==0.2.0
-Flask==*
-Flask-RESTful==*
+Flask==3.0.2
+Flask-RESTful==0.3.10
+onnxruntime-gpu==1.12.1

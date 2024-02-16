@@ -1,0 +1,11 @@
+[Without Provider (default)]
+Video Processed Elapsed time: 764.853278875351 seconds
+Around: 12.747554647922517 minutes
+
+[With Provider "MIGraphXExecutionProvider","CPUExecutionProvider" ]
+Video Processed Elapsed time: 381.5724515914917 seconds
+Around 6.359540859858195 minutes
+
+[With Provider "ROCMExecutionProvider"]
+Video Processed Elapsed time: 364.89443612098694 seconds
+Around 6.081573935349782 minutes

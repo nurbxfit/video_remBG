@@ -8,6 +8,17 @@ It take a video, extract it frames into images, apply background removal and the
 Added simple REST API server, we can upload video, and it will automatically process the video
 Currently we not blocking the request, we immediately return a response while the video being processed in background via multi thereading.
 
+Note:
+
+- rembg, already have start as server features using the `s` options or using the `docker` version [refer here](https://github.com/danielgatis/rembg#rembg-s),
+- Here I just learning to create my own server.
+
+If u want to start the existing rembg server using docker, can refer the command below
+
+```
+docker run -p 7000:7000 --name my_rembg_container danielgatis/rembg s --host 0.0.0.0 --port 7000 --log_level info
+```
+
 ## TODO:
 
 Because we are not blocking the request,
@@ -24,6 +35,11 @@ we need to consider these cases:
 - we need to consider better model or better GPU to process removing the background.
 
 (note: this repo is just a POC)
+
+## Note:
+
+- You might need to change the provider based on ur running machine, I run on an AMD ryzen laptop so I use the AMD GPU provider.
+- you can refer the list here [Provider](https://onnxruntime.ai/docs/execution-providers/)
 
 # How to run (Windows)
 
